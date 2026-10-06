@@ -21,15 +21,18 @@ def main():
 
     while True:
         log_state()
+        
     
         for event in pygame.event.get():
             screen.fill((0, 0, 0))  # Clear the screen with black
-            player.draw(screen)  # Draw the player
             if event.type == pygame.QUIT:
                 return
 
-            
-            pygame.display.flip() # Update the display
+
+        player.draw(screen)
+        player.update(dt)
+          
+        pygame.display.flip() # Update the display
         dt = clock.tick(60) / 1000.0  # Limit to 60 FPS and get delta time in seconds
 
 if __name__ == "__main__":
